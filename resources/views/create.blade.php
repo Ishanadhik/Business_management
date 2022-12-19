@@ -10,6 +10,12 @@
 <body>
 <form method="post" action="{{action([\App\Http\Controllers\PagesController::class,'store'])}}" enctype="multipart/form-data">
     @csrf
+
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            {{$error}}
+        @endforeach
+
     <label>Product_name</label>
     <input type="text" name="product_name"required>
     <label>Product_price</label>
